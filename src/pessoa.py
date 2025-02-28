@@ -3,10 +3,19 @@ import os
 from erros import dinheiro_insuficiente, usuario_inexistente
 
 class pessoa:
-    def __init__(self, saldo: float, cpf: str):
+    def __init__(self, cpf: str, saldo: float):
         self.__saldo = saldo
         self.__cpf = cpf
-    
+
+    def atualizar_dados(self) -> float:
+        basedir = os.path.abspath(os.path.dirname(__file__))
+
+        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
+            info = json.load(users_file)
+
+        self.__saldo = info[self.__cpf]["saldo"]
+            
+        return self.__saldo
     def depositar(self, quantia: float):
         self.__saldo += quantia
 
