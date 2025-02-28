@@ -1,3 +1,5 @@
+from pessoa import pessoa
+
 # Função para adquirir os valores necessários para realizar o registro
 def registrar():
     print("Para a realização do registro, dê as seguintes informações: ")
@@ -137,18 +139,92 @@ R: ''').strip().replace(" ", "")
 
 
 
+# Função para o menu de registrar e login
 def menu_inicial():
     while True:
         try:
-            escolha = input('''Bem-vindo ao caixa eletrônico Bahia!
+            # Introdução e escolha entre registro e login
+            escolha = input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
+Por favor escolha entre realizar um login ou o registro em nosso aplicativo:
+[1] Registrar
+[2] Login
 ''')
+            
+            # 
+            if escolha != '1' and escolha != '2':
+                print("Erro, tente novamente: ")
+                continue
+
+            else:
+                if escolha == 1:
+                    registrar()
+                
+                if escolha == 2:
+                    login()
 
         except ValueError:
-            print("Erro! Senha incorreta.")
+            print("Erro! Tente novamente: ")
 
         except Exception:
-            print("Erro inesperado! Senha incorreta.")
+            print("Erro! Tente novamente: ")
 
-        else:
-            print("Senha confirmada com sucesso!")
-            break
+# Função para o menu de Transação, Depósito e Saque
+def menu_principal(saldo, cpf):
+    # instância da classe pessoa
+    user = pessoa(saldo, cpf)
+
+    while True:
+        try:
+            # Introdução e escolha entre transação, depósito e saque
+            escolha = input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
+Por favor escolha entre realizar uma transação, um depósito ou um saque em nosso aplicativo:
+[1] Transação
+[2] Ver saldo
+[3] Depósito
+[4] Saque
+[5] Sair
+''')
+        
+            # Verifica se foi digitado algo diferente do que foi pedido
+            if escolha < 1 or escolha > 5:
+                print("Erro, tente novamente: ")
+                continue
+            
+            if escolha == 1:
+                while True:
+                    try:
+                        quantia = int(input('Digite a quantia que você quer fazer a transação ("1" para voltar): '))
+
+                        if quantia == 1:
+                            break
+
+                        if quantia < saldo:
+                            print("Você não tem dinheiro suficiente para realizar essa transação, escolha outro valor ou saia. ")
+                            continue
+                    
+                    except ValueError:
+                        print("Erro na digitalização, tente novamente. ")
+
+                    except Exception:
+                        print("Erro na digitalização, tente novamnete. ")
+                    
+                    else:
+                        ...
+
+            elif escolha == 2:
+                user.mostrar_saldo()
+            
+            elif escolha == 3:
+                user.depositar()
+            
+            elif escolha == 4:
+                user.sacar()
+            
+            elif escolha == 5:
+                print("Obrigado por usar o nosso sistema, até mais! ")
+        
+        except ValueError:
+            print("Escolha inválida, tente novamente! ")
+
+        except Exception:
+            print("Escolha inválida, tente novamente! ")
