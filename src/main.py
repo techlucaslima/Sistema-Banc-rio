@@ -1,5 +1,10 @@
+from user import user
+
 # Função para adquirir os valores necessários para realizar o registro
 def registrar():
+    cpf_global = ""
+    senha_global = ""
+
     print("Para a realização do registro, dê as seguintes informações: ")
 
     # Repetição para garantir a digitação correta do CPF
@@ -27,7 +32,12 @@ R: ''').strip().replace(" ", "")
 
         else:
             print(f"CPF digitado: {cpf[0:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}")
-            break
+            
+            try:
+                cpf_global = cpf
+                break
+            except Exception as e:
+                print(e)
 
     # Repetição para garantir a digitação correta da senha
     while True:
@@ -64,9 +74,11 @@ R: ''').strip().replace(" ", "")
 
         else:
             print(f"Senha cadastrada com sucesso! ")
+
+            senha_global = senha
+            user.registrar(cpf_global, senha_global)
             break
         
-
 
 # Função para adquirir os valores necessários para realizar o login
 def login():

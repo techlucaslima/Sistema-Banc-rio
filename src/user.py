@@ -1,25 +1,33 @@
 import json
-from erros import senhas_nao_iguais, usuario_existente, usuario_ou_senha_incorretos
+import os
+from erros import usuario_existente, usuario_ou_senha_incorretos
 
 class user:
+    def verificar_usuario_existente(self, cpf: str):
+        basedir = os.path.abspath(os.path.dirname(__file__))
+
+        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
+            info = json.load(users_file)
+
+        if cpf in info:
+            raise usuario_existente
+
     def registrar(self, cpf: str, senha: str):
-        with open("../bd/users.json", "r", encoding="utf-8") as users_file:
+        basedir = os.path.abspath(os.path.dirname(__file__))
+
+        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
             info = json.load(users_file)
                 
-        if not cpf in info:
-            info[cpf] = {"senha": senha,
-                        "saldo": 0}
-        else:
-            raise usuario_existente
+        info[cpf] = {"senha": senha,
+                    "saldo": 0}
                 
-        with open("bd/users.json", "w", encoding="utf-8") as users_file:
+        with open(basedir + "\\..\\bd\\users.json", "w", encoding="utf-8") as users_file:
             json.dump(info, users_file, ensure_ascii=False, indent=4)
                 
-        with open("user_logged.json", "w", encoding="utf-8") as users_file:
-            json.dump(info[cpf], users_file, ensure_ascii=False, indent=4)
-                
     def logar(self, cpf: str, senha: str):
-        with open("bd/users.json", "r", encoding="utf-8") as users_file:
+        basedir = os.path.abspath(os.path.dirname(__file__))
+        
+        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
             info = json.load(users_file)
             
         if cpf in info:
