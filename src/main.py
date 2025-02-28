@@ -1,5 +1,6 @@
 import user
 import pessoa
+import sys
 from os import system
 from time import sleep
 
@@ -151,7 +152,7 @@ Por favor escolha entre realizar uma transação, um depósito ou um saque em no
                 system('cls')
                 print("Obrigado por usar o nosso sistema, até mais! ")
                 sleep(tempo_sleep)
-                exit()
+                sys.exit()
                 return
         
         except ValueError:

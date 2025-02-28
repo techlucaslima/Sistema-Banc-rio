@@ -6,7 +6,7 @@ class user:
     def verificar_usuario_existente(self, cpf: str):
         basedir = os.path.abspath(os.path.dirname(__file__))
 
-        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
+        with open("_internal/users.json", "r", encoding="utf-8") as users_file:
             info = json.load(users_file)
 
         if cpf in info:
@@ -15,7 +15,7 @@ class user:
     def verificar_usuario_inexistente(self, cpf: str):
         basedir = os.path.abspath(os.path.dirname(__file__))
 
-        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
+        with open("_internal/users.json", "r", encoding="utf-8") as users_file:
             info = json.load(users_file)
 
         if not cpf in info:
@@ -24,19 +24,19 @@ class user:
     def registrar(self, cpf: str, senha: str):
         basedir = os.path.abspath(os.path.dirname(__file__))
 
-        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
+        with open("_internal/users.json", "r", encoding="utf-8") as users_file:
             info = json.load(users_file)
                 
         info[cpf] = {"senha": senha,
                     "saldo": 0}
                 
-        with open(basedir + "\\..\\bd\\users.json", "w", encoding="utf-8") as users_file:
+        with open("_internal/users.json", "w", encoding="utf-8") as users_file:
             json.dump(info, users_file, ensure_ascii=False, indent=4)
                 
     def logar(self, cpf: str, senha: str):
         basedir = os.path.abspath(os.path.dirname(__file__))
         
-        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
+        with open("_internal/users.json", "r", encoding="utf-8") as users_file:
             info = json.load(users_file)
             
         if cpf in info:
