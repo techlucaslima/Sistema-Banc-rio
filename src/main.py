@@ -281,7 +281,7 @@ def menu_inicial():
 Por favor escolha entre realizar um login ou o registro em nosso caixa:
 [1] Registrar
 [2] Login
-'''))
+''')
             
             # Verifica se a escolha está nos requisitos
             if escolha in [1, 2]:
@@ -302,66 +302,6 @@ Por favor escolha entre realizar um login ou o registro em nosso caixa:
         except Exception:
             print("Erro! Tente novamente: ")
 
-# Função para o menu de Transação, Depósito e Saque
-def menu_principal(saldo, cpf):
-    # instância da classe pessoa
-    user = pessoa(saldo, cpf)
-
-    while True:
-        try:
-            # Introdução e escolha entre transação, depósito e saque
-            escolha = input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
-Por favor escolha entre realizar uma transação, um depósito ou um saque em nosso caixa:
-[1] Transação
-[2] Ver saldo
-[3] Depósito
-[4] Saque
-[5] Sair
-''')
-        
-            # Verifica se foi digitado algo diferente do que foi pedido
-            if escolha < 1 or escolha > 5:
-                print("Erro, tente novamente: ")
-                continue
-            
-            if escolha == 1:
-                while True:
-                    try:
-                        quantia = int(input('Digite a quantia que você quer fazer a transação ("1" para voltar): '))
-
-                        if quantia == 1:
-                            break
-
-                        if quantia < saldo:
-                            print("Você não tem dinheiro suficiente para realizar essa transação, escolha outro valor ou saia. ")
-                            continue
-                    
-                    except ValueError:
-                        print("Erro na digitalização, tente novamente. ")
-
-                    except Exception:
-                        print("Erro na digitalização, tente novamnete. ")
-                    
-                    else:
-                        ...
-
-            elif escolha == 2:
-                user.mostrar_saldo()
-            
-            elif escolha == 3:
-                user.depositar()
-            
-            elif escolha == 4:
-                user.sacar()
-            
-            elif escolha == 5:
-                print("Obrigado por usar o nosso sistema, até mais! ")
-        
-        except ValueError:
-            print("Escolha inválida, tente novamente! ")
-
-        except Exception:
-            print("Escolha inválida, tente novamente! ")
 
 if __name__ == "__main__":
     menu_inicial()
