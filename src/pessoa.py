@@ -14,8 +14,7 @@ class pessoa:
             info = json.load(users_file)
 
         self.__saldo = info[self.__cpf]["saldo"]
-            
-        return self.__saldo
+
     def depositar(self, quantia: float):
         self.__saldo += quantia
 
