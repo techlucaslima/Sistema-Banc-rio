@@ -35,6 +35,7 @@ R: ''').strip().replace(" ", "")
             print(f"CPF digitado: {cpf[0:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}")
             
             try:
+                user.verificar_usuario_existente()
                 cpf_global = cpf
                 break
             except Exception as e:
@@ -78,11 +79,15 @@ R: ''').strip().replace(" ", "")
 
             senha_global = senha
             user.registrar(cpf_global, senha_global)
+            menu_principal(0, cpf)
             break
         
 
 # Função para adquirir os valores necessários para realizar o login
 def login():
+    cpf_global = ""
+    senha_global = ""
+
     print("Para realizar o seu login, nos dê algumas informações: ")
 
     # While para pegar o CPF do usuário
@@ -109,7 +114,13 @@ R: ''').strip().replace(" ", "")
 
         else:
             print(f"CPF digitado: {cpf[0:3]}.{cpf[3:6]}.{cpf[6:9]}-{cpf[9:]}")
-            break
+
+            try:
+                user.verificar_usuario_inexistente()
+                cpf_global = cpf
+                break
+            except Exception as e:
+                print(e)
 
     # Repetição para garantir a digitação correta da senha
     while True:
@@ -147,8 +158,7 @@ R: ''').strip().replace(" ", "")
         else:
             print("Senha confirmada com sucesso!")
             break
-
-
+            
 
 # Função para o menu de registrar e login
 def menu_inicial():
@@ -156,7 +166,7 @@ def menu_inicial():
         try:
             # Introdução e escolha entre registro e login
             escolha = input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
-Por favor escolha entre realizar um login ou o registro em nosso aplicativo:
+Por favor escolha entre realizar um login ou o registro em nosso caixa:
 [1] Registrar
 [2] Login
 ''')
@@ -188,7 +198,7 @@ def menu_principal(saldo, cpf):
         try:
             # Introdução e escolha entre transação, depósito e saque
             escolha = input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
-Por favor escolha entre realizar uma transação, um depósito ou um saque em nosso aplicativo:
+Por favor escolha entre realizar uma transação, um depósito ou um saque em nosso caixa:
 [1] Transação
 [2] Ver saldo
 [3] Depósito
@@ -239,3 +249,6 @@ Por favor escolha entre realizar uma transação, um depósito ou um saque em no
 
         except Exception:
             print("Escolha inválida, tente novamente! ")
+
+if __name__ == "__main__":
+    menu_inicial()

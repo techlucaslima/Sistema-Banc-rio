@@ -12,6 +12,15 @@ class user:
         if cpf in info:
             raise usuario_existente
 
+    def verificar_usuario_inexistente(self, cpf: str):
+        basedir = os.path.abspath(os.path.dirname(__file__))
+
+        with open(basedir + "\\..\\bd\\users.json", "r", encoding="utf-8") as users_file:
+            info = json.load(users_file)
+
+        if not cpf in info:
+            raise usuario_ou_senha_incorretos
+
     def registrar(self, cpf: str, senha: str):
         basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -32,8 +41,7 @@ class user:
             
         if cpf in info:
             if info[cpf]["senha"] == senha:
-                with open("user_logged.json", "w", encoding="utf-8") as users_file:
-                    json.dump(info, users_file, ensure_ascii=False, indent=4)
+                return
             else:
                 raise usuario_ou_senha_incorretos
         else:
