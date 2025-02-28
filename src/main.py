@@ -2,7 +2,6 @@ import user
 import pessoa
 from os import system
 from time import sleep
-from erros import dinheiro_insuficiente, usuario_inexistente
 
 tempo_sleep = 2
 tempo_sleep_info = 5
