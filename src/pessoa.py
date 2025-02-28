@@ -2,7 +2,7 @@ import json
 from erros import dinheiro_insuficiente, usuario_inexistente
 
 class pessoa:
-    def __init__(self, saldo, cpf):
+    def __init__(self, saldo: float, cpf: str):
         self.__saldo = saldo
         self.__cpf = cpf
     
@@ -35,7 +35,7 @@ class pessoa:
         else:
             raise dinheiro_insuficiente
     
-    def sacar(self, quantia):
+    def sacar(self, quantia: float):
         if quantia < self.__saldo:
             self.__saldo -= quantia
 
