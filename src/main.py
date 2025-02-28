@@ -1,6 +1,118 @@
 from user import user
 from pessoa import pessoa
 
+# Função para o menu de Transação, Depósito e Saque
+def menu_principal(saldo, cpf):
+    # instância da classe pessoa
+    user = pessoa(saldo, cpf)
+
+    while True:
+        try:
+            # Introdução e escolha entre transação, depósito e saque
+            escolha = int(input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
+Por favor escolha entre realizar uma transação, um depósito ou um saque em nosso aplicativo:
+[1] Transação
+[2] Ver saldo
+[3] Depósito
+[4] Saque
+[5] Sair
+'''))
+        
+            # Verifica se foi digitado algo diferente do que foi pedido
+            if escolha not in [1, 2, 3, 4, 5]:
+                print("Erro, tente novamente: ")
+                continue
+            
+
+            # Verifica se quer fazer transação
+            if escolha == 1:
+                while True:
+                    try:
+                        quantia = float(input('Digite a quantia que você quer fazer a transação ("-1" para voltar): '))
+
+                        if quantia < 0:
+                            break
+
+                        cpf_outroUsuario = input('Digite o CPF da pessoa que quer fazer a transação ("-1" para sair): ')
+                        cpf_outroUsuario = cpf_outroUsuario.strip().replace(" ", "")
+
+                        if cpf_outroUsuario < 0:
+                            continue
+
+                        # Verificação para garantir que o CPF tenha apenas números e exatamente 11 dígitos
+                        if len(cpf_outroUsuario) != 11 or not cpf_outroUsuario.isdigit():
+                            print("Erro! CPF inválido, digite novamente.")
+                            continue
+                    
+                    except ValueError:
+                        print("Erro na digitalização, tente novamente. ")
+
+                    except Exception:
+                        print("Erro na digitalização, tente novamente. ")
+                    
+                    else:
+                        user.transacao(quantia, cpf_outroUsuario)
+                        print(f"Uma transação de R${quantia},00 foi feita no cpf {cpf_outroUsuario}! ")
+
+
+            # Verifica se quer ver o saldo
+            elif escolha == 2:
+                print(user.mostrar_saldo())
+
+            
+            # Verifica se quer fazer depósito
+            elif escolha == 3:
+                while True:
+                    try:
+                        quantia = float(input('Digite a quantia que você quer fazer o depósito ("1" para voltar): '))
+
+                        if quantia == 1:
+                            break
+                    
+                    except ValueError:
+                        print("Erro na digitalização, tente novamente. ")
+
+                    except Exception:
+                        print("Erro na digitalização, tente novamente. ")
+                    
+                    else:
+                        user.depositar(quantia)
+                        print(f"Um depósito de R${quantia},00 foi feita na sua conta! ")
+
+            
+            # Verifica se quer fazer o saque
+            elif escolha == 4:
+                while True:
+                    try:
+                        quantia = float(input('Digite a quantia que você quer fazer o saque ("1" para voltar): '))
+
+                        if quantia == 1:
+                            break
+                    
+                    except ValueError:
+                        print("Erro na digitalização, tente novamente. ")
+
+                    except Exception:
+                        print("Erro na digitalização, tente novamnete. ")
+                    
+                    else:
+                        user.sacar(quantia)
+                        print(f"Foi realizado o saque, debitando da sua conta a quantia de R${quantia},00! ")
+
+
+            # Verifica se quer encerrar o sistema
+            elif escolha == 5:
+                print("Obrigado por usar o nosso sistema, até mais! ")
+                return
+        
+        except ValueError:
+            print("Escolha inválida, tente novamente! ")
+
+        except Exception:
+            print("Escolha inválida, tente novamente! ")
+
+
+
 # Função para adquirir os valores necessários para realizar o registro
 def registrar():
     cpf_global = ""
@@ -169,13 +281,14 @@ def menu_inicial():
 Por favor escolha entre realizar um login ou o registro em nosso caixa:
 [1] Registrar
 [2] Login
-''')
+'''))
             
-            # 
-            if escolha != '1' and escolha != '2':
+            # Verifica se a escolha está nos requisitos
+            if escolha in [1, 2]:
                 print("Erro, tente novamente: ")
                 continue
-
+            
+            # Chama as respectivas funções
             else:
                 if escolha == 1:
                     registrar()
