@@ -1,5 +1,4 @@
-('C:\\Users\\mosuk\\Documents\\Aula '
- 'Técnico\\Sistema-Banc-rio\\build\\main\\main.pkg',
+('D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\main.pkg',
  {'BINARY': True,
   'DATA': True,
   'EXECUTABLE': True,
@@ -11,39 +10,31 @@
   'SYMLINK': False},
  [('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\PYZ-00.pyz',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\PYZ-00.pyz',
    'PYZ'),
   ('struct',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\localpycs\\struct.pyc',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\localpycs\\struct.pyc',
    'PYMODULE'),
   ('pyimod01_archive',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod01_archive.pyc',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod01_archive.pyc',
    'PYMODULE'),
   ('pyimod02_importers',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod02_importers.pyc',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod02_importers.pyc',
    'PYMODULE'),
   ('pyimod03_ctypes',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod03_ctypes.pyc',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod03_ctypes.pyc',
    'PYMODULE'),
   ('pyimod04_pywin32',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod04_pywin32.pyc',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\localpycs\\pyimod04_pywin32.pyc',
    'PYMODULE'),
   ('pyiboot01_bootstrap',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\.venv\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\.venv\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
    'PYSOURCE'),
   ('pyi_rth_inspect',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\.venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
    'PYSOURCE'),
   ('main',
-   'C:\\Users\\mosuk\\Documents\\Aula Técnico\\Sistema-Banc-rio\\src\\main.py',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\src\\main.py',
    'PYSOURCE')],
  'python312.dll',
  True,

@@ -49,7 +49,7 @@ class pessoa:
             raise dinheiro_insuficiente
     
     def sacar(self, quantia: float):
-        if quantia < self.__saldo:
+        if quantia <= self.__saldo:
             self.__saldo -= quantia
 
             basedir = os.path.abspath(os.path.dirname(__file__))

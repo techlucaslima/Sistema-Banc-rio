@@ -23,7 +23,7 @@ def menu_principal(cpf: str, isRegister = False):
         try:
             system('cls')
             # Introdução e escolha entre transação, depósito e saque
-            escolha = int(input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
+            escolha = int(input('''------SoluçõesTEC------
 Por favor escolha entre realizar uma transação, um depósito ou um saque em nosso aplicativo:
 [1] Transação
 [2] Ver saldo
@@ -377,7 +377,7 @@ def menu_inicial():
             system('cls')
 
             # Introdução e escolha entre registro e login
-            escolha = int(input('''------Bem-vindo-ao-caixa-eletrônico-Bahia!------
+            escolha = int(input('''------SoluçõesTec!------
 Por favor escolha entre realizar um login ou o registro em nosso caixa:
 [1] Registrar
 [2] Login

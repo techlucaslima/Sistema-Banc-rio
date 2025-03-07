@@ -1,6 +1,5 @@
 ([('main.exe',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\main.exe',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\main.exe',
    'EXECUTABLE'),
   ('python312.dll',
    'C:\\Users\\mosuk\\AppData\\Local\\Programs\\Python\\Python312\\python312.dll',
@@ -33,10 +32,8 @@
    'C:\\Users\\mosuk\\AppData\\Local\\Programs\\Python\\Python312\\DLLs\\libcrypto-3.dll',
    'BINARY'),
   ('users.json',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\bd\\users.json',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\bd\\users.json',
    'DATA'),
   ('base_library.zip',
-   'C:\\Users\\mosuk\\Documents\\Aula '
-   'Técnico\\Sistema-Banc-rio\\build\\main\\base_library.zip',
+   'D:\\Documents\\AulaTecnico\\Sistema-Banc-rio\\build\\main\\base_library.zip',
    'DATA')],)
